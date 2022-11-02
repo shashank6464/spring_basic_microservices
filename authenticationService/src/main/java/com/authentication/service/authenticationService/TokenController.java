@@ -13,12 +13,14 @@ public class TokenController {
     @Autowired
     private TokenService tokenService;
 
+
     @GetMapping("/welcome")
     public String welcome(){
         return "welcome";
     }
 
 
+    //get token by userId
     @GetMapping("/get-token/{id}")
     public String createToken(@PathVariable("id") int userId){
         return tokenService.createToken(userId);
