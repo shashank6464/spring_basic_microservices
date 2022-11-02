@@ -1,6 +1,7 @@
 package com.signup.service.signupService.service;
 
 import com.signup.service.signupService.model.User;
+import com.signup.service.signupService.proxyServices.AuthenticationConsumer;
 import com.signup.service.signupService.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,9 @@ public class UserService {
     private UserRepository userRepository;
 
 
-    //Signup
     public String signupService(User user){
 
+        //System.out.println(authConsumer.welcome());
         User savedUser = userRepository.save(user);
         return "{" +
                 "\"message\":"+"\"Successfully Created User\",\n"+
@@ -24,7 +25,6 @@ public class UserService {
                 "}";
     }
 
-    //Login
     public String loginService(String email, String password){
         List<User> foundUsers =  userRepository.loginUser(email);
 
@@ -42,13 +42,14 @@ public class UserService {
 
         return "{\n" +
                 "\"message\":"+"\" Successfully Logged-in\",\n"+
-                "\"data\": {\n"+" Name : "+foundUsers.get(0).getName()+",\n"+
-                "Email : "+foundUsers.get(0).getEmail()+"\n"+
+                "\"data\": {\n"+"       Name : "+foundUsers.get(0).getName()+",\n"+
+                "       id : "+foundUsers.get(0).getId()+",\n"+
+                "       Email : "+foundUsers.get(0).getEmail()+"\n"+
+                "   }\n"+
                 "}";
 
     }
 
-    //Get all users
     public List<User> getUsers(){
         return userRepository.findAll();
     }

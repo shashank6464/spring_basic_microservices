@@ -18,21 +18,18 @@ public class UserController {
         this.service = service;
     }
 
-    //add a user
     @PostMapping(value = "/add-user")
     public String signup(@RequestBody User user){
         return service.signupService(user);
     }
 
 
-    //user login
     @PostMapping("/login")
     public String login(@RequestBody Map<String, Object> map){
         return service.loginService(map.get("email").toString(), map.get("password").toString());
     }
 
-    //get all users
-    @GetMapping("/get-all-users")
+    @GetMapping("/get-users")
     public List<User> getUsers(){
         return service.getUsers();
     }

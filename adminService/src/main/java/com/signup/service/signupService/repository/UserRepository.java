@@ -9,12 +9,12 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource
 public interface UserRepository extends JpaRepository<User,Integer> {
 
 
-    //Additional query for user login
+    //additional query for user login
     @Modifying
     @Query("SELECT u FROM User u WHERE u.email = :email")
     List<User> loginUser(@Param("email") String email);
+
 }

@@ -10,7 +10,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 //enable this client to eureka client
 //
 
-@EnableZuulProxy
 @EnableEurekaClient
 @EnableFeignClients
 @SpringBootApplication

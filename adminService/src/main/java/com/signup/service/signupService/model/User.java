@@ -1,5 +1,6 @@
 package com.signup.service.signupService.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
